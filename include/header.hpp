@@ -9,7 +9,7 @@ template <typename T>
 class SharedPtr{
 public:
     SharedPtr();
-    SharedPtr(T* ptr);
+    explicit SharedPtr(T* ptr);
     SharedPtr(const SharedPtr& r);
     SharedPtr(SharedPtr&& r);
     ~SharedPtr();
@@ -25,7 +25,6 @@ public:
     void reset();
     void reset(T* ptr);
     void my_swap(SharedPtr& r);
-    // возвращает количество объектов SharedPtr, которые ссылаются на тот же управляемый объект
     auto use_count() const -> size_t;
     static std::map<int64_t, std::atomic_uint> _shared_map;
 private:

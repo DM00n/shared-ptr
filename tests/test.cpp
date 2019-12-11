@@ -1,10 +1,10 @@
 // Copyright 2018 Your Name <your_email>
 
 #include <gtest/gtest.h>
-
+#include "header.h"
 TEST(Example, EmptyTest) {
 int* a = new int;
-a = 7;
+*a = 7;
 
 SharedPtr<int> s1(a);
 EXPECT_EQ(s1.use_count(), 1);
