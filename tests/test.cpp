@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 #include "header.hpp"
-#include "source.cpp"
+//#include "source.cpp"
 TEST(Example, EmptyTest) {
 int* a = new int;
 *a = 7;
