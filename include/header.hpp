@@ -4,6 +4,7 @@
 
 #include <atomic>
 #include <map>
+#include <iostream>
 
 template <typename T>
 class SharedPtr{
@@ -15,8 +16,6 @@ public:
     ~SharedPtr();
     auto operator=(const SharedPtr& r) -> SharedPtr&;
     auto operator=(SharedPtr&& r) -> SharedPtr&;
-
-    // проверяет, указывает ли указатель на объект
     operator bool() const;
     auto operator*() const -> T&;
     auto operator->() const -> T*;
