@@ -29,8 +29,8 @@ EXPECT_EQ(s1, s2);
 s1.reset(b);
 EXPECT_EQ(s1.use_count(), s3.use_count());
 
-SharedPtr<int> s3(s2);
-EXPECT_EQ(s3, s2);
+SharedPtr<int> s4(s2);
+EXPECT_EQ(s4, s2);
 }
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
