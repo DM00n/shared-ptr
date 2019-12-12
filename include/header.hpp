@@ -105,7 +105,6 @@ public:
                 (reinterpret_cast<int64_t>(_pointer));
     }
     static std::map<int64_t, std::atomic_uint> _shared_map;
-    
 private:
     T* _pointer;
 };
