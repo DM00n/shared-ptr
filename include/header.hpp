@@ -80,7 +80,7 @@ public:
             _shared_map.erase(it);
         }
         _pointer = NULL;
-        _shared_map.operator[](reinterpret_cast<int64_t>(_pointer))=0;
+        _shared_map.operator[](reinterpret_cast<int64_t>(_pointer)) = 0;
     }
     void reset(T* ptr){
         _shared_map.operator[](reinterpret_cast<int64_t>(_pointer))--;
