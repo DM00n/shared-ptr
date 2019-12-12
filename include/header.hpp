@@ -1,3 +1,4 @@
+// Copyright 2019 DM00n <teamvortex@yandex.ru>
 #ifndef INCLUDE_HEADER_HPP_
 #define INCLUDE_HEADER_HPP_
 
@@ -11,7 +12,7 @@ public:
     SharedPtr(){
         _shared_map.operator[](reinterpret_cast<int64_t>(_pointer))++;
     }
-    SharedPtr(T* ptr):_pointer(ptr){
+    explicit SharedPtr(T* ptr):_pointer(ptr){
         _shared_map.operator[](reinterpret_cast<int64_t>(_pointer))++;
     }
     SharedPtr(const SharedPtr& r):_pointer(r._pointer){
@@ -94,16 +95,17 @@ public:
         _shared_map.operator[](reinterpret_cast<int64_t>(_pointer))++;
     }
     void my_swap(SharedPtr& r){
-        T* ptrka=NULL;
-        ptrka=_pointer;
-        _pointer=r._pointer;
-        r._pointer=ptrka;
+        T* ptrka = NULL;
+        ptrka = _pointer;
+        _pointer = r._pointer;
+        r._pointer = ptrka;
     }
     auto use_count() const -> size_t {
         return SharedPtr::_shared_map.operator[]
                 (reinterpret_cast<int64_t>(_pointer));
     }
     static std::map<int64_t, std::atomic_uint> _shared_map;
+    
 private:
     T* _pointer;
 };
